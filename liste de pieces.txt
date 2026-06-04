@@ -1,0 +1,22 @@
+				
+										Qté				prix approximatif €							total
+				
+motoreducteur   28 byj-48  12V			3				3											9
+stepper A4988					    	3				2											6
+Wemos D1 Mini D1 R32					1				5											5
+CNC Shield V3							1				3											3
+afficheur TFT 240*240					1				3											3
+Module émetteur infrarouge IR Module de capteur récepteur									1	2	2
+alim LM2596 DC-DC 12V 5V				1				2											2
+batterie 12V 15000mha					1				7											7
+roulements 17x30x7  2*2					4				2											8
+Adaptateur de mise au point du télescope de calibre 70mm, haute qualité, interface 1.25 " 1	  15	15
+tube carré 3*60cm						1				10											10
+Esp32_ cam								1				7											7
+niveau a bulles							1				2											2
+optique monocylindre 5X24 avec support, accessoires de télescope astronomique	1	7				7
+miroir  P 203 F800  + S70				1				120											120
+planches 				
+PETG				
+Led laser pour colimateur lot 10pieces 	1				3											3
+																						206
