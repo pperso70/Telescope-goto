@@ -1,9 +1,11 @@
 # Telescope goto
 Telescope 203 F800 ESP32(Wemos D1 Mini D1 R32 + CNC Shield V3 +  A4988 + 28 byj-48)  et  HW
 
-Piloté par stellarium sur PC stellarium sur tablette ou Skysafary. petite liste de planètes et étoiles
+Piloté par stellarium sur PC ou stellarium sur tablette ou Skysafary par WiFi.
 
-Télécommande infrarouge pour mouvements et oculaire
+Télécommande infrarouge pour les mouvements Alt Az et oculaire
+
+Ecran TFT 240*240
 
 Petite liste de planètes et étoiles
 
@@ -18,6 +20,4 @@ Esp32 cam pour le fun
 URL: Teles.local  Camera.local
 
 Mettre adresse et mot de passe le système prend le wifi le plus fort 
-
-Connections:
 
