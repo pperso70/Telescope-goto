@@ -1,9 +1,9 @@
 # Telescope goto
-Telescope 203 F800 ESP32(Wemos D1 Mini D1 R32 + CNC Shield V3 +  A4988 + 28 byj-48)  et  HW
+Telescope 203mm F800 ESP32(Wemos D1 Mini D1 R32 + CNC Shield V3 +  A4988 + 28 byj-48) monture et optique
 
-Piloté par stellarium sur PC ou stellarium sur tablette ou Skysafary par WiFi.
+Piloté en WiFi par stellarium sur PC ou stellarium+ sur tablette ou Skysafari 7 pro.
 
-Télécommande infrarouge pour les mouvements Alt Az et oculaire
+Commande des mouvements Alt Az et oculairepar page web sur navigateur ou télécommande infrarouge.
 
 Ecran TFT 240*240
 
