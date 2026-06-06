@@ -2372,8 +2372,8 @@ void handleChercheur()
             // Serial.print(">theta:");
             // Serial.println(theta);
 
-            delta_cherche_alt = (coef_rayon * theta) * sin(0.01745 * alpha) * 8000 / diviseur_step_azi; // 1000 points
-            delta_cherche_azi = (coef_rayon * theta) * cos(0.01745 * alpha) * 8000 / diviseur_step_alt;
+            delta_cherche_alt = (coef_rayon * theta) * sin(0.01745 * alpha) * 250 * diviseur_step_azi; // 1000 points
+            delta_cherche_azi = (coef_rayon * theta) * cos(0.01745 * alpha) * 250 * diviseur_step_azi; // 1000 points
 
             Stepper_azi->move(delta_cherche_azi - delta_cherche_azi_prev);
             Stepper_alt->move(delta_cherche_alt - delta_cherche_alt_prev);
