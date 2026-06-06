@@ -4,7 +4,8 @@
 // dans stellarium activer pilotage teleccope et contole a ditance puis redemarrer
 
 /*
-    Pour charger star.cvs   dans VScode, Plateformio: new terminal,   entrer: pio run --target uploadfs
+    Pour charger le petit fichiers des etoiles et planetes star.cvs   dans VScode, Plateformio: new terminal,   entrer: pio run --target uploadfs
+    fonctionne par port com ou OTA.
       
     Dans Stellarium, configuration generale(F2) puis Plungins, commande a distance,  cocher activer au demarrage,
     puis configurer: cocher serveur activer et activer au demarrage, port 8090
