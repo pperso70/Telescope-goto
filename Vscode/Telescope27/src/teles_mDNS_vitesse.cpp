@@ -1179,30 +1179,6 @@ String handleLX200(String cmd)
     return "?#";
 }
 
-void sendPositionold(float ra_hours, float dec_deg) // pos act vers stellarium PC
-{
-    static unsigned long lastSend = 0;
-    if (millis() - lastSend < 1000)
-        return;
-    lastSend = millis();
-
-    if (!stellariumPcClient.connected())
-        return;
-
-    uint32_t ra_units = uint32_t(round((ra_hours / 24.0) * 0x40000000)) * 4;
-    int32_t dec_units = int32_t(round((dec_deg / 90.0) * 0x40000000));
-
-    uint8_t packet[24] = {0};
-    packet[0] = 0x18;
-
-    memcpy(&packet[12], &ra_units, sizeof(uint32_t));
-    memcpy(&packet[16], &dec_units, sizeof(int32_t));
-
-    stellariumPcClient.write(packet, 24);
-
-    // Serial.printf("Position envoyée → RA: %.2f h, DEC: %.2f°\n", ra_hours, dec_deg);
-}
-
 void sendPosition(float ra_hours, float dec_deg)
 {
     static uint32_t lastSend = 0;
