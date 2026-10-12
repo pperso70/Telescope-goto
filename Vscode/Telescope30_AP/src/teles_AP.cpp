@@ -1,10 +1,8 @@
 
-//=========================================================
-// Pour CNC3, choix astre par IR touche 1, OTA, acces stellarium par HTTPClient http, limite ref verticale
-//=========================================================
-// dans stellarium activer pilotage teleccope et contole a ditance puis redemarrer
+/*   Pour CNC3, choix astre par IR touche 1, OTA, acces stellarium par HTTPClient http, limite ref verticale
 
-/*
+     dans stellarium activer pilotage teleccope et contole a ditance puis redemarrer
+
     Pour charger le petit fichiers des etoiles et planetes star.cvs   dans VScode, Plateformio: new terminal,   entrer: pio run --target uploadfs
     fonctionne par port com ou OTA.
 
@@ -18,41 +16,29 @@
 
 
     github\Vscode\Telescope27> pio pkg list
-    Resolving esp32dev dependencies...
     Platform espressif32 @ 6.5.0 (required: espressif32 @ 6.5.0)
-    ├── framework-arduinoespressif32 @ 3.20014.231204 (required: platformio/framework-arduinoespressif32 @ ~3.20014.0)
-    ├── tool-esptoolpy @ 1.40501.0 (required: platformio/tool-esptoolpy @ ~1.40501.0)
-    ├── tool-mkfatfs @ 2.0.1 (required: platformio/tool-mkfatfs @ ~2.0.0)
-    ├── tool-mklittlefs @ 1.203.210628 (required: platformio/tool-mklittlefs @ ~1.203.0)
-    ├── tool-mkspiffs @ 2.230.0 (required: platformio/tool-mkspiffs @ ~2.230.0)
-    ├── tool-openocd-esp32 @ 2.1100.20220706 (required: platformio/tool-openocd-esp32 @ ~2.1100.0)
-    ├── toolchain-riscv32-esp @ 8.4.0+2021r2-patch5 (required: espressif/toolchain-riscv32-esp @ 8.4.0+2021r2-patch5)
-    └── toolchain-xtensa-esp32 @ 8.4.0+2021r2-patch5 (required: espressif/toolchain-xtensa-esp32 @ 8.4.0+2021r2-patch5)
+├── framework-arduinoespressif32 @ 3.20014.231204 (required: platformio/framework-arduinoespressif32 @ ~3.20014.0)
+├── tool-esptoolpy @ 1.40501.0 (required: platformio/tool-esptoolpy @ ~1.40501.0)
+├── tool-mkfatfs @ 2.0.1 (required: platformio/tool-mkfatfs @ ~2.0.0)
+├── tool-mklittlefs @ 1.203.210628 (required: platformio/tool-mklittlefs @ ~1.203.0)
+├── tool-mkspiffs @ 2.230.0 (required: platformio/tool-mkspiffs @ ~2.230.0)
+├── tool-openocd-esp32 @ 2.1100.20220706 (required: platformio/tool-openocd-esp32 @ ~2.1100.0)
+└── toolchain-xtensa-esp32 @ 8.4.0+2021r2-patch5 (required: espressif/toolchain-xtensa-esp32 @ 8.4.0+2021r2-patch5)
 
-    Libraries
-    ├── ArduinoJson @ 6.21.5 (required: bblanchon/ArduinoJson @ ^6.21.3)
-    ├── AsyncHTTPRequest_Generic @ 1.13.0 (required: khoih-prog/AsyncHTTPRequest_Generic @ ^1.13.0)
-    │   ├── AsyncTCP @ 3.3.2 (required: me-no-dev/AsyncTCP @ >=1.1.1)
-    │   ├── ESPAsync_WiFiManager @ 1.15.1 (required: khoih-prog/ESPAsync_WiFiManager @ >=1.15.1)
-    │   │   └── ESP_DoubleResetDetector @ 1.3.2 (required: khoih-prog/ESP_DoubleResetDetector @ >=1.3.2)
-    │   ├── WebServer_ESP32_ENC @ 1.5.3 (required: khoih-prog/WebServer_ESP32_ENC @ >=1.5.3)
-    │   ├── WebServer_ESP32_W5500 @ 1.5.3 (required: khoih-prog/WebServer_ESP32_W5500 @ >=1.5.3)
-    │   ├── WebServer_ESP32_W6100 @ 1.5.3 (required: khoih-prog/WebServer_ESP32_W6100 @ >=1.5.3)
-    │   └── WebServer_WT32_ETH01 @ 1.5.1 (required: khoih-prog/WebServer_WT32_ETH01 @ >=1.5.1)
-    ├── AsyncTCP @ 3.3.2+sha.ef448a8 (required: git+https://github.com/me-no-dev/AsyncTCP.git)
-    ├── DIYables_IRcontroller @ 1.0.1 (required: diyables/DIYables_IRcontroller @ ^1.0.0)
-    │   └── IRremote @ 4.3.0 (required: IRremote @ =4.3.0)
-    ├── ESPAsyncWebServer @ 3.6.0+sha.ad3741d (required: git+https://github.com/me-no-dev/ESPAsyncWebServer.git)
-    │   └── AsyncTCP @ 3.4.10 (required: ESP32Async/AsyncTCP @ ^3.3.2)
-    ├── FastAccelStepper @ 0.30.14 (required: gin66/FastAccelStepper @ 0.30.14)
-    ├── JPEGDecoder @ 2.0.0 (required: bodmer/JPEGDecoder @ ^2.0.0)
-    ├── NTPClient @ 3.2.1 (required: arduino-libraries/NTPClient @ ^3.2.1)
-    ├── SiderealPlanets @ 1.6.0 (required: davidarmstrong/SiderealPlanets @ ^1.4.0)
-    ├── TFT_eFEX @ 0.0.8 (required: bodmer/TFT_eFEX @ ^0.0.8)
-    ├── TFT_eSPI @ 2.5.43 (required: bodmer/TFT_eSPI @ ^2.5.43)
-    └── WebSockets @ 2.7.3 (required: WebSockets)
+Libraries
+├── ArduinoJson @ 6.21.6 (required: bblanchon/ArduinoJson @ ^6.21.3)
+├── DIYables_IRcontroller @ 1.0.1 (required: diyables/DIYables_IRcontroller @ ^1.0.0)
+│   └── IRremote @ 4.3.0 (required: IRremote @ =4.3.0)
+├── ESPAsyncWebServer @ 3.6.0 (required: ESP32Async/ESPAsyncWebServer @ 3.6.0)
+│   └── AsyncTCP @ 3.5.0 (required: ESP32Async/AsyncTCP @ ^3.3.2)
+├── FastAccelStepper @ 0.30.15 (required: gin66/FastAccelStepper @ ^0.30.14)
+├── JPEGDecoder @ 2.0.0 (required: bodmer/JPEGDecoder @ ^2.0.0)
+├── SiderealPlanets @ 1.6.0 (required: davidarmstrong/SiderealPlanets @ ^1.4.0)
+├── TFT_eFEX @ 0.0.8 (required: bodmer/TFT_eFEX @ ^0.0.8)
+├── TFT_eSPI @ 2.5.43 (required: bodmer/TFT_eSPI @ ^2.5.43)
+└── WebSockets @ 2.7.3 (required: WebSockets @ ^2.4.1)
 
-*/
+
 #include <Arduino.h>
 #include <WiFi.h>
 #include <AsyncTCP.h> // ajout le 13/3/25
@@ -77,8 +63,32 @@
 #include "esp_wifi.h"
 #include <ESPmDNS.h>
 #include <WiFiUdp.h>
+*/
 
-// #include "Profiler.h"
+#include <Arduino.h>
+#include <WiFi.h>
+#include <ESPAsyncWebServer.h> // Inclut déjà AsyncTCP.h en interne
+#include <WebSocketsServer.h>
+#include <WebSocketsClient.h>
+#include <TFT_eFEX.h>
+#include <TFT_eSPI.h> 
+#include "ArduinoJson.h"
+#include "FastAccelStepper.h"
+#include <SiderealPlanets.h>
+#include <IRController.h> // À vérifier selon la doc de DIYables
+
+// Fichiers locaux du projet
+#include "webpage.h"
+
+// Outils natifs ESP32 / Arduino (Utiles selon votre code)
+#include <ArduinoOTA.h>
+//#include <ESPmDNS.h>
+#include <LittleFS.h>
+#include <Preferences.h>
+#include <HTTPClient.h>
+#include <pgmspace.h>
+#include "esp_wifi.h" // Uniquement si vous changez le mode sleep/mac du WiFi en bas niveau
+
 IRController irController(13, 200);
 
 Preferences prefs;
