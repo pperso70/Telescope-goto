@@ -4,7 +4,24 @@ Libs: ArduinoJson 7.2.1, WebSockets 2.6.1
 
 camera position avec occulaire 5000
 avec camaera 23704
-*/
+
+PS D:\Platformio\projets\camera30> pio pkg list
+Resolving esp32dev dependencies...
+Platform espressif32 @ 6.5.0 (required: espressif32 @ 6.5.0)
+├── framework-arduinoespressif32 @ 3.20014.231204 (required: platformio/framework-arduinoespressif32 @ ~3.20014.0)
+├── tool-esptoolpy @ 1.40501.0 (required: platformio/tool-esptoolpy @ ~1.40501.0)
+├── tool-mkfatfs @ 2.0.1 (required: platformio/tool-mkfatfs @ ~2.0.0)
+├── tool-mklittlefs @ 1.203.210628 (required: platformio/tool-mklittlefs @ ~1.203.0)
+├── tool-mkspiffs @ 2.230.0 (required: platformio/tool-mkspiffs @ ~2.230.0)
+├── tool-openocd-esp32 @ 2.1100.20220706 (required: platformio/tool-openocd-esp32 @ ~2.1100.0)
+└── toolchain-xtensa-esp32 @ 8.4.0+2021r2-patch5 (required: espressif/toolchain-xtensa-esp32 @ 8.4.0+2021r2-patch5)
+
+Libraries
+├── ArduinoJson @ 7.4.3 (required: bblanchon/ArduinoJson @ ^7.1.0)
+├── ESPAsyncWebServer @ 3.6.0 (required: ESP32Async/ESPAsyncWebServer @ 3.6.0)
+│   └── AsyncTCP @ 3.5.0 (required: ESP32Async/AsyncTCP @ ^3.3.2)
+└── WebSockets @ 2.7.3 (required: links2004/WebSockets @ ^2.6.0)
+
 
 #include <Arduino.h>
 #include "esp_camera.h"
@@ -17,6 +34,23 @@ avec camaera 23704
 #include "soc/rtc_cntl_reg.h"
 #include "esp_wifi.h"
 #include <ESPmDNS.h>
+*/
+
+#include <Arduino.h>
+#include "esp_camera.h"
+#include <WiFi.h>
+#include <ESPAsyncWebServer.h>
+#include <WebSocketsServer.h>
+#include <ArduinoJson.h>
+#include <ArduinoOTA.h> // Inclut déjà ESPmDNS.h en interne
+
+// Gestion de l'alimentation / WiFi bas niveau (Optionnels selon votre code)
+#include "soc/soc.h"
+#include "soc/rtc_cntl_reg.h" // Utile pour désactiver le Brownout
+#include "esp_wifi.h"         // Utile pour la gestion de l'économie d'énergie Wi-Fi
+
+
+
 
 // CONFIG HARDWARE
 #define LED_PIN 33
@@ -201,7 +235,6 @@ void onWebSocket(uint8_t num, WStype_t type, uint8_t *payload, size_t length)
 void initOTA()
 {
   ArduinoOTA.setHostname("camera"); // ⚠️ sans .local
-
   ArduinoOTA.onStart([]()
                      {
     otaInProgress = true;
@@ -241,7 +274,10 @@ void initOTA()
     else if (error == OTA_RECEIVE_ERROR) Serial.println("Receive");
     else if (error == OTA_END_ERROR) Serial.println("End"); });
 
+  Serial.println("Initialisation OTA...");
+  ArduinoOTA.setPort(3232);
   ArduinoOTA.begin();
+  Serial.println("OTA PRET");
 }
 
 // STREAM CAMERA
